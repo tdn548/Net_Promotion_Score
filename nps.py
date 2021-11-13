@@ -437,9 +437,11 @@ elif choice == 'New Prediction':
     np.log(SERVICEABILITY_6),np.log(SERVICEABILITY_7),np.log(SERVICEABILITY_8),np.log(SERVICEABILITY_9),
     np.log(RESPONSIVENESS_1),np.log(RESPONSIVENESS_2),np.log(RESPONSIVENESS_3),np.log(RESPONSIVENESS_4),np.log(RESPONSIVENESS_5),np.log(RAPPORT_1),np.log(RAPPORT_2),np.log(RAPPORT_3),np.log(RAPPORT_4),np.log(RAPPORT_5),np.log(SAFETY_1),np.log(SAFETY_2),np.log(SAFETY_3),np.log(SAFETY_4),np.log(SAFETY_5),np.log(STUDENTFOCUS_1),np.log(STUDENTFOCUS_2),np.log(STUDENTFOCUS_3),np.log(STUDENTFOCUS_4),np.log(STUDENTFOCUS_5),np.log(CURRICULA_1),np.log(CURRICULA_2),np.log(CURRICULA_3),np.log(CURRICULA_4),np.log(INSTRUCTORS_1),np.log(INSTRUCTORS_2),np.log(INSTRUCTORS_3),np.log(INSTRUCTORS_4),np.log(INSTRUCTORS_5),np.log(COURSES_1),np.log(COURSES_2), np.log(COURSES_3),np.log(COURSES_4), np.log(COURSES_5),np.log(COURSES_6)]])
     new_data_2 = [[Q5]] + new_data
-    new_data_3 = pca.fit_transform(new_data_2)
+    new_data_3 = pca.transform(new_data_2)
     prediction = model.predict(new_data_3)
     st.write(prediction)
+    st.write('X_train',X_train.shape)
+    st.write('X_train_pca', X_train_pca.shape)
     st.write(new_data_2.shape)
     st.write(new_data_3.shape)
     predict_probability = model.predict_proba(new_data_3)
