@@ -439,6 +439,9 @@ elif choice == 'New Prediction':
     new_data_2 = [[Q5]] + new_data
     new_data_3 = pca.fit_transform(new_data_2)
     prediction = model.predict(new_data_3)
+    st.write(prediction)
+    st.write(new_data_2.shape)
+    st.write(new_data_3.shape)
     predict_probability = model.predict_proba(new_data_3)
 
     if prediction[0] == 'Yes':
