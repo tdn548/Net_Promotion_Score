@@ -450,7 +450,7 @@ elif choice == 'New Prediction':
     new_data = scaler.transform([a_log])
     new_data_2 = Q5 + a_log
     prediction = model.predict(new_data_2)
-    predict_probability = model.predict_proba(new_dat_2)
+    predict_probability = model.predict_proba(new_data_2)
 
     if prediction[0] == 'Yes':
         	st.subheader('Student {} would have promote the school with a probability of {}%'.format(name, 
