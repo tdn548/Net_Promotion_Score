@@ -457,13 +457,13 @@ elif choice == 'New Prediction':
          CURRICULA_1,CURRICULA_2,CURRICULA_3,CURRICULA_4,
          INSTRUCTORS_1,INSTRUCTORS_2,INSTRUCTORS_3,INSTRUCTORS_4,INSTRUCTORS_5,
          COURSES_1,COURSES_2,COURSES_3,COURSES_4,COURSES_5,COURSES_6]])
-    #new_data_2 = Q5 + new_data
-    prediction = model.predict(new_data)
-    predict_probability = model.predict_proba(new_data)
+    new_data_2 = [[Q5]] + new_data
+    prediction = model.predict(new_data_2)
+    predict_probability = model.predict_proba(new_data_2)
 
     if prediction[0] == 'Yes':
         	st.subheader('Student {} would have promote the school with a probability of {}%'.format(name, 
                                                     round(predict_probability[0][1]*100 , 2)))
     else:
-	    st.subheader('Passenger {} would not have promote the school with a probability of {}%'.format(name, 
+	    st.subheader('Student {} would not have promote the school with a probability of {}%'.format(name, 
                                                     round(predict_probability[0][0]*100 , 2)))
