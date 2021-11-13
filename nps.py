@@ -327,7 +327,6 @@ elif choice == 'Build Projection':
     st.write('Test set score: {}'.format(round(test_score,2)))
     st.write('Confussion matrix:')
     st.table(confusion)
-    st.table(metrics.classification_report(y_test, y_predict))
     st.write(metrics.classification_report(y_test, y_predict))
     st.write('#### AUC: %.3f' %auc)
 
@@ -447,7 +446,7 @@ elif choice == 'New Prediction':
       #a[name_log] = np.log(a[i])
       #lst_lientuc_log.append(a[name_log])    
 
-    new_data = scaler.transform([a_log])
+    new_data = scaler.transform(a_log)
     new_data_2 = Q5 + a_log
     prediction = model.predict(new_data_2)
     predict_probability = model.predict_proba(new_data_2)
