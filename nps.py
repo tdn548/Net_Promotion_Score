@@ -296,6 +296,8 @@ TN = confusion[0][0]
 TP = confusion[1][1]
 FP = confusion[0][1]
 
+auc = metrics.roc_auc_score(y_test, y_predict)
+
 # ---Part 2: Show project result with Streamlit------------------------------------------
 st.title('Data Science')
 st.header('Net Promotion Score Predict Project')
@@ -434,8 +436,8 @@ elif choice == 'New Prediction':
          INSTRUCTORS_1,INSTRUCTORS_2,INSTRUCTORS_3,INSTRUCTORS_4,INSTRUCTORS_5,
          COURSES_1,COURSES_2,COURSES_3,COURSES_4,COURSES_5,COURSES_6]
       
-    a_log = np.log(a)
-    b = [Q5]
+    #a_log = np.log(a)
+    #b = [Q5]
 
 
     #lst_lientuc_log = {}
@@ -446,10 +448,10 @@ elif choice == 'New Prediction':
       #a[name_log] = np.log(a[i])
       #lst_lientuc_log.append(a[name_log])    
 
-    new_data = scaler.transform(a_log)
-    new_data_2 = Q5 + a_log
-    prediction = model.predict(new_data_2)
-    predict_probability = model.predict_proba(new_data_2)
+    new_data = scaler.transform(a)
+    #new_data_2 = Q5 + new_data
+    prediction = model.predict(new_data)
+    predict_probability = model.predict_proba(new_data)
 
     if prediction[0] == 'Yes':
         	st.subheader('Student {} would have promote the school with a probability of {}%'.format(name, 
