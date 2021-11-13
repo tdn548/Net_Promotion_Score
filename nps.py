@@ -328,7 +328,7 @@ elif choice == 'Build Projection':
     st.write('Test set score: {}'.format(round(test_score,2)))
     st.write('Confussion matrix:')
     st.table(confusion)
-    st.write(metrics.classification_report(y_test, y_predict))
+    st.table(metrics.classification_report(y_test, y_predict))
 
 
     # Trực quan hóa kết quả
@@ -447,7 +447,16 @@ elif choice == 'New Prediction':
       #a[name_log] = np.log(a[i])
       #lst_lientuc_log.append(a[name_log])    
 
-    new_data = scaler.transform(a)
+    new_data = scaler.transform([INFRASTRUCTURE_1,INFRASTRUCTURE_2,INFRASTRUCTURE_3,INFRASTRUCTURE_4,
+         SERVICEABILITY_1,SERVICEABILITY_2,SERVICEABILITY_3,SERVICEABILITY_4,SERVICEABILITY_5,
+         SERVICEABILITY_6,SERVICEABILITY_7,SERVICEABILITY_8,SERVICEABILITY_9,
+         RESPONSIVENESS_1,RESPONSIVENESS_2,RESPONSIVENESS_3,RESPONSIVENESS_4,RESPONSIVENESS_5,
+         RAPPORT_1,RAPPORT_2,RAPPORT_3,RAPPORT_4,RAPPORT_5,
+         SAFETY_1,SAFETY_2,SAFETY_3,SAFETY_4,SAFETY_5,
+         STUDENTFOCUS_1,STUDENTFOCUS_2,STUDENTFOCUS_3,STUDENTFOCUS_4,STUDENTFOCUS_5,
+         CURRICULA_1,CURRICULA_2,CURRICULA_3,CURRICULA_4,
+         INSTRUCTORS_1,INSTRUCTORS_2,INSTRUCTORS_3,INSTRUCTORS_4,INSTRUCTORS_5,
+         COURSES_1,COURSES_2,COURSES_3,COURSES_4,COURSES_5,COURSES_6])
     #new_data_2 = Q5 + new_data
     prediction = model.predict(new_data)
     predict_probability = model.predict_proba(new_data)
