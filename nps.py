@@ -296,7 +296,6 @@ TN = confusion[0][0]
 TP = confusion[1][1]
 FP = confusion[0][1]
 
-auc = metrics.roc_auc_score(y_test, y_predict)
 
 # ---Part 2: Show project result with Streamlit------------------------------------------
 st.title('Data Science')
@@ -330,7 +329,7 @@ elif choice == 'Build Projection':
     st.write('Confussion matrix:')
     st.table(confusion)
     st.write(metrics.classification_report(y_test, y_predict))
-    st.write('#### AUC: %.3f' %auc)
+
 
     # Trực quan hóa kết quả
     #st.write('#### Visualization')
