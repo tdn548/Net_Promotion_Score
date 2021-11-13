@@ -10,7 +10,7 @@ from sklearn.preprocessing import StandardScaler
 import matplotlib.pyplot as plt
 from sklearn import metrics
 from sklearn.decomposition import PCA
-from sklearn.externals import joblib
+import joblib
 
 df = pd.read_csv("International_Student.csv")
 df.drop(['CaseId', 'CONSENT','Q6O', 'INFRASTRUCTUREEXPLAIN', 'SERVICEEXPLAIN', 'RESPONSIVEEXPLAIN',
@@ -89,8 +89,6 @@ for i in num_columns_names:
 import collections
 
 counter=collections.Counter(list_outliers_index)
-len(counter)
-print(counter)
 
 list_outliers_index_unique = set(list_outliers_index)
 
