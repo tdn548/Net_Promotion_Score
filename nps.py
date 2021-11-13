@@ -446,8 +446,10 @@ elif choice == 'New Prediction':
     st.write('X_train_pca', X_train_pca.shape)
     st.write(new_data_2)
     st.write(new_data_2.shape)
+    new_data_2_reshape = new_data_2.reshape(1,-1)
+    st.write(new_data_2_reshape)
     
-    new_data_3 = pca.transform(new_data_2)
+    new_data_3 = pca.transform(new_data_2_reshape)
     st.write(new_data_3.shape)
     prediction = model.predict(new_data_3)
     st.write(prediction[0])
