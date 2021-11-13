@@ -436,15 +436,18 @@ elif choice == 'New Prediction':
     new_data = scaler.transform([[np.log(INFRASTRUCTURE_1),np.log(INFRASTRUCTURE_2),np.log(INFRASTRUCTURE_3),np.log(INFRASTRUCTURE_4),np.log(SERVICEABILITY_1),np.log(SERVICEABILITY_2),np.log(SERVICEABILITY_3),np.log(SERVICEABILITY_4),np.log(SERVICEABILITY_5),
     np.log(SERVICEABILITY_6),np.log(SERVICEABILITY_7),np.log(SERVICEABILITY_8),np.log(SERVICEABILITY_9),
     np.log(RESPONSIVENESS_1),np.log(RESPONSIVENESS_2),np.log(RESPONSIVENESS_3),np.log(RESPONSIVENESS_4),np.log(RESPONSIVENESS_5),np.log(RAPPORT_1),np.log(RAPPORT_2),np.log(RAPPORT_3),np.log(RAPPORT_4),np.log(RAPPORT_5),np.log(SAFETY_1),np.log(SAFETY_2),np.log(SAFETY_3),np.log(SAFETY_4),np.log(SAFETY_5),np.log(STUDENTFOCUS_1),np.log(STUDENTFOCUS_2),np.log(STUDENTFOCUS_3),np.log(STUDENTFOCUS_4),np.log(STUDENTFOCUS_5),np.log(CURRICULA_1),np.log(CURRICULA_2),np.log(CURRICULA_3),np.log(CURRICULA_4),np.log(INSTRUCTORS_1),np.log(INSTRUCTORS_2),np.log(INSTRUCTORS_3),np.log(INSTRUCTORS_4),np.log(INSTRUCTORS_5),np.log(COURSES_1),np.log(COURSES_2), np.log(COURSES_3),np.log(COURSES_4), np.log(COURSES_5),np.log(COURSES_6)]])
-    new_data_2 = [[]]
-    new_data_2 = sum(Q5,new_data)
-    pca2 = PCA(0.95)
+    st.write(type(new_data))
+    st.write(type(Q5))
+
+    Q5_array = np.array(Q5)
+
+    new_data_2 = np.append(Q5_array,new_data)
     st.write('X_train',X_train.shape)
     st.write('X_train_pca', X_train_pca.shape)
     st.write(new_data_2)
     st.write(new_data_2.shape)
     
-    new_data_3 = pca2.fit_transform(new_data_2)
+    new_data_3 = pca.transform(new_data_2)
     st.write(new_data_3.shape)
     prediction = model.predict(new_data_3)
     st.write(prediction[0])
